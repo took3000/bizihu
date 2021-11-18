@@ -1,0 +1,66 @@
+ 
+<!doctype html>
+<html lang="zh"><!-- TODO(dbeam): dir="ltr"? -->
+<!-- Copyright 2015 The Chromium Authors. All rights reserved.
+     Use of this source code is governed by a BSD-style license that can be
+     found in the LICENSE file. -->
+<head>
+ 
+<!-- 分析：
+			1、需要先有页面效果
+			2、倒计时读秒实现
+				1.定义一个方法实现修改span里的内容
+				2.定义一个定时器，每秒修改一次
+			3、跳转。判断标志，为真的时候关闭定时器并跳转到指定页
+ -->
+	<style>
+		p{
+			text-align : center;
+		}
+		
+		p span{
+			color:red;
+		}
+		
+		.dada{
+font-size:36px;
+width:80%;
+position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+
+} 
+	</style>
+	
+</head>
+<body>
+<!-- 1、页面效果 -->
+<div class="dada">
+	<p>
+	旅客请注意<span id = "time">3</span>秒后，抵达壁纸湖
+	</p>
+ </div>
+    <script>
+		var time = 3 ;
+<!-- 2、倒计时读秒实现并判断跳转-->
+		function showTime (){
+			
+			time--;
+			if(time<=0){
+				//clearInterval(id);
+           
+				location.href = "http://www.lg3000.top/rb.html";
+			}
+			var sp = document.getElementById("time");
+			sp.innerHTML = time ;
+		}
+		
+		var id = setInterval(showTime,1000);
+		
+		
+	</script>
+</body>
+</html>
